@@ -79,8 +79,6 @@ export interface ProjectDraftPayload {
   rationale: string;
 }
 
-export type EntityFrontmatter = PersonFrontmatter | ProjectFrontmatter;
-
 export interface ParsedMarkdownFile<T = Record<string, unknown>> {
   frontmatterRaw: string;
   frontmatter: T;
@@ -94,29 +92,3 @@ export interface JournalEntry {
   people?: string[];
 }
 
-export interface UserFrontmatter {
-  id?: string;
-  name?: string;
-  role?: string;
-  team?: string;
-  email?: string;
-  github?: string;
-  timezone?: string;
-  last_modified?: string;
-  _rationale?: string;
-  _drafted_at?: string;
-  [key: string]: unknown;
-}
-
-export interface UserDraftPayload {
-  id?: string;
-  name?: string;
-  role?: string;
-  team?: string;
-  email?: string;
-  github?: string;
-  timezone?: string;
-  preferences?: string[];
-  rules?: string[];
-  rationale: string;
-}

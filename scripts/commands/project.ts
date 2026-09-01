@@ -281,12 +281,12 @@ Commands:
     Stage a new project briefing or patch fields on an existing one.
     Payload schema:
       {
-        "name": "<kebab-name>",               (required)
-        "status": "<enum>",                    (optional: active|planning|paused|completed)
-        "lead": "<kebab-name>",                (optional)
-        "objectives": ["obj 1", "obj 2"],      (optional)
-        "facts": ["fact 1", "fact 2"],         (optional)
-        "rationale": "<why this update>"       (required)
+        "name": "<kebab-name>",                          (required)
+        "status": "<enum>",                               (optional: active|planning|paused|completed)
+        "lead": "<kebab-name>",                           (optional)
+        "objectives": ["2-4 deliverables"],               (optional: 2-4 items)
+        "key_facts": ["3-6 architecture & roster facts"], (optional: 3-6 items)
+        "rationale": "<why this update>"                  (required)
       }
 
   save --name "<name>"

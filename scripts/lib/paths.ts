@@ -27,7 +27,6 @@ export function ensureMemoryStructure(): string {
     path.join(root, "briefings", "projects"),
     path.join(root, "drafts", "briefings", "people"),
     path.join(root, "drafts", "briefings", "projects"),
-    path.join(root, "backups", "user"),
     path.join(root, "backups", "briefings", "people"),
     path.join(root, "backups", "briefings", "projects"),
     path.join(root, "journals"),
@@ -37,28 +36,6 @@ export function ensureMemoryStructure(): string {
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
-  }
-
-  const userMd = getUserMdPath();
-  if (!fs.existsSync(userMd)) {
-    const defaultUserMd = `---
-id: user
-name: User
-role: Engineer
-timezone: America/Chicago
-last_modified: 2026-08-28
----
-
-# User Profile
-
-## Communication Preferences
-- **Chat**: Ultra-concise, direct responses; prioritize bullet points; avoid pleasantries and repeating completed work; weave in witty, good humor naturally.
-- **Document Writing**: One concept per point; progressive structure across all levels; smooth flow; plain language without jargon; self-documenting code with inline comments.
-
-## Working Rules
-- (Permanent operating principles and architectural invariants will be recorded here)
-`;
-    fs.writeFileSync(userMd, defaultUserMd, "utf-8");
   }
 
   return root;
@@ -74,14 +51,6 @@ export function getDraftsDir(): string {
 
 export function getBackupsDir(): string {
   return path.join(resolveMemoryRoot(), "backups");
-}
-
-export function getDraftUserPath(): string {
-  return path.join(resolveMemoryRoot(), "drafts", "user.md");
-}
-
-export function getUserBackupDir(): string {
-  return path.join(resolveMemoryRoot(), "backups", "user");
 }
 
 export function getBriefingsDir(kind: BriefingKind): string {
@@ -120,12 +89,6 @@ export function getJournalPath(dateStr: string): string {
   return path.join(getJournalsDir(), `${dateStr}.md`);
 }
 
-// Backward compatibility aliases
-export const getMemoryRoot = resolveMemoryRoot;
-export const getJournalDir = getJournalsDir;
-export const getDatesDir = getJournalsDir;
-export const getDatePath = getJournalPath;
-
 export function sanitizeName(name: string): string {
   return name
     .toLowerCase()
@@ -134,3 +97,4 @@ export function sanitizeName(name: string): string {
     .replace(/[^a-z0-9_-]/g, "-")
     .replace(/-+/g, "-");
 }
+
