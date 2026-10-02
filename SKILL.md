@@ -88,7 +88,7 @@ Review the latest conversation transcript, recent journal entries, and existing 
    - Consolidate & replace older lower-priority facts rather than continuously appending.
 3. Use the CLI commands to draft and save updates:
    bun <SKILL_DIR>/scripts/commands/people.ts draft --json '<payload>' && bun <SKILL_DIR>/scripts/commands/people.ts save --name '<name>'
-   bun <SKILL_DIR>/scripts/commands/project.ts draft --json '<payload>' && bun <SKILL_DIR>/scripts/commands/project.ts save --name '<name>'
+   bun <SKILL_DIR>/scripts/commands/projects.ts draft --json '<payload>' && bun <SKILL_DIR>/scripts/commands/projects.ts save --name '<name>'
 4. Do NOT modify ~/.memory/user.md or ~/.memory/journals/. Both are strictly READ-ONLY.
 5. Exit silently when finished.
 `
@@ -111,7 +111,7 @@ bun <SKILL_DIR>/scripts/commands/people.ts draft --json '{
 bun <SKILL_DIR>/scripts/commands/people.ts save --name "<kebab-name>"
 
 # Project Briefings (Draft & Save)
-bun <SKILL_DIR>/scripts/commands/project.ts draft --json '{
+bun <SKILL_DIR>/scripts/commands/projects.ts draft --json '{
   "name": "<kebab-name>",
   "rationale": "<why updating>",
   "status": "<active|planning|paused|completed>",
@@ -119,7 +119,7 @@ bun <SKILL_DIR>/scripts/commands/project.ts draft --json '{
   "objectives": ["<Goal 1>", "<Goal 2>"],
   "key_facts": ["<Architecture & Stacks>", "<Constraints & Dependencies>", "<Roster>"]
 }'
-bun <SKILL_DIR>/scripts/commands/project.ts save --name "<kebab-name>"
+bun <SKILL_DIR>/scripts/commands/projects.ts save --name "<kebab-name>"
 ```
 
 ---
