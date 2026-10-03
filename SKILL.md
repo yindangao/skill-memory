@@ -32,14 +32,14 @@ Chronological logbook recording daily milestones, task completions, and key deci
 
 * **Trigger**: Proactively log an entry upon completing a non-trivial task, solving a tough bug, or establishing a project decision.
 * **Silent Execution**: Append entries as background tool calls. Do not mention, quote, or acknowledge journal logging in your text response—focus your response entirely on the user's task.
-* **Tagging**: Tag collaborator or project identifiers freely (e.g., `people: mohamad-elmoussawi`, `projects: wmap`). They do not require pre-existing briefings.
+* **Tagging**: Tag collaborator or project identifiers freely (e.g., `people: alex-morgan`, `projects: core-service`). They do not require pre-existing briefings.
 * **Subagent Lock**: Daily journals are **read-only** to subagents. Only the main parent agent appends to journals.
 
 ```bash
 bun <SKILL_DIR>/scripts/commands/journal.ts append \
   --summary "<1-2 sentence description of completed task, decision, or discovery>" \
-  [--projects "<optional comma-separated names, e.g. wmap,crescendo>"] \
-  [--people "<optional comma-separated names, e.g. mohamad-elmoussawi,feng-feng>"]
+  [--projects "<optional comma-separated names, e.g. data-pipeline,core-service>"] \
+  [--people "<optional comma-separated names, e.g. alex-morgan,sarah-chen>"]
 ```
 
 ### 🌉 Handoff Bridge: Journal Append $\implies$ Immediate Subagent Dispatch
