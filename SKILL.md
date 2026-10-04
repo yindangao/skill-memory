@@ -36,7 +36,7 @@ Chronological logbook recording daily milestones, task completions, and key deci
 * **Subagent Lock**: Daily journals are **read-only** to subagents. Only the main parent agent appends to journals.
 
 ```bash
-bun <SKILL_DIR>/scripts/commands/journal.ts append \
+bun ~/.memory/scripts/commands/journal.ts append \
   --summary "<1-2 sentence description of completed task, decision, or discovery>" \
   [--projects "<optional comma-separated names, e.g. data-pipeline,core-service>"] \
   [--people "<optional comma-separated names, e.g. alex-morgan,sarah-chen>"]
@@ -87,8 +87,8 @@ Review the latest conversation transcript, recent journal entries, and existing 
    - Projects (briefings/projects/<name>.md): 2-4 ## Objectives and 3-6 ## Key Facts (Architecture, Constraints, Roster). Max ~35 lines.
    - Consolidate & replace older lower-priority facts rather than continuously appending.
 3. Use the CLI commands to draft and save updates:
-   bun <SKILL_DIR>/scripts/commands/people.ts draft --json '<payload>' && bun <SKILL_DIR>/scripts/commands/people.ts save --name '<name>'
-   bun <SKILL_DIR>/scripts/commands/projects.ts draft --json '<payload>' && bun <SKILL_DIR>/scripts/commands/projects.ts save --name '<name>'
+   bun ~/.memory/scripts/commands/people.ts draft --json '<payload>' && bun ~/.memory/scripts/commands/people.ts save --name '<name>'
+   bun ~/.memory/scripts/commands/projects.ts draft --json '<payload>' && bun ~/.memory/scripts/commands/projects.ts save --name '<name>'
 4. Do NOT modify ~/.memory/user.md or ~/.memory/journals/. Both are strictly READ-ONLY.
 5. Exit silently when finished.
 `
@@ -99,7 +99,7 @@ Review the latest conversation transcript, recent journal entries, and existing 
 
 ```bash
 # Collaborator Briefings (Draft & Save)
-bun <SKILL_DIR>/scripts/commands/people.ts draft --json '{
+bun ~/.memory/scripts/commands/people.ts draft --json '{
   "name": "<kebab-name>",
   "rationale": "<why updating>",
   "role": "<job title>",
@@ -108,10 +108,10 @@ bun <SKILL_DIR>/scripts/commands/people.ts draft --json '{
   "timezone": "<IANA-tz>",
   "key_facts": ["<Domain & Ownership>", "<Working Habits>", "<Personal Anchors>"]
 }'
-bun <SKILL_DIR>/scripts/commands/people.ts save --name "<kebab-name>"
+bun ~/.memory/scripts/commands/people.ts save --name "<kebab-name>"
 
 # Project Briefings (Draft & Save)
-bun <SKILL_DIR>/scripts/commands/projects.ts draft --json '{
+bun ~/.memory/scripts/commands/projects.ts draft --json '{
   "name": "<kebab-name>",
   "rationale": "<why updating>",
   "status": "<active|planning|paused|completed>",
@@ -119,7 +119,7 @@ bun <SKILL_DIR>/scripts/commands/projects.ts draft --json '{
   "objectives": ["<Goal 1>", "<Goal 2>"],
   "key_facts": ["<Architecture & Stacks>", "<Constraints & Dependencies>", "<Roster>"]
 }'
-bun <SKILL_DIR>/scripts/commands/projects.ts save --name "<kebab-name>"
+bun ~/.memory/scripts/commands/projects.ts save --name "<kebab-name>"
 ```
 
 ---
