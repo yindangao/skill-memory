@@ -134,3 +134,30 @@ Permanent user profile (`~/.memory/user.md`) storing core identity, preferences,
 * **Strict Confirmation Gate**: Always confirm proposed profile or rule modifications with the user in chat before applying edits, especially when inferring preferences rather than following explicit commands.
 * **Subagent Barrier**: Subagents are strictly forbidden from editing `~/.memory/user.md`.
 * **Substrate Invariant**: The `## Memory Substrate` section is an essential system anchor and must always be preserved.
+* **Template Bootstrap**: If `~/.memory/user.md` does not exist, initialize it from `templates/user.template.md` (see Section 5).
+
+---
+
+## 5. Bootstrapping a New Environment
+
+When setting up this skill on a fresh machine:
+
+### 5.1 Create Directory Tree
+Run this command to build the storage folders:
+```bash
+mkdir -p ~/.memory/{briefings/{people,projects},journals,backups,drafts}
+```
+
+### 5.2 Initialize User Profile
+If `~/.memory/user.md` does not exist, copy the starter template:
+```bash
+cp templates/user.template.md ~/.memory/user.md
+```
+Update the top frontmatter block with the user's real name, role, and contact details.
+
+### 5.3 Link Scripts and Project Rules
+Link the script commands and workspace profile:
+```bash
+ln -s "$(pwd)/scripts" ~/.memory/scripts
+ln -s ~/.memory/user.md .agents/AGENTS.md
+```
