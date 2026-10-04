@@ -161,45 +161,7 @@ Link the script commands to the shared memory path:
 ln -s "$(pwd)/scripts" ~/.memory/scripts
 ```
 
-### 5.4 Link Operating Rules to Coding Agents
-The file `~/.memory/user.md` is the single source of truth. Link it to the location where your coding agent discovers instructions.
-
-#### 5.4.1 Machine-Wide Global Rules
-Apply rules across every workspace on the computer.
-
-Antigravity:
-```bash
-ln -s ~/.memory/user.md ~/.gemini/config/AGENTS.md
-```
-
-Claude Code:
-```bash
-mkdir -p ~/.claude
-ln -s ~/.memory/user.md ~/.claude/CLAUDE.md
-```
-
-Cursor and Windsurf:
-```bash
-ln -s ~/.memory/user.md ~/.cursorrules
-```
-
-#### 5.4.2 Project Workspace Rules
-Apply rules to a specific project repository.
-
-Standard Agent Specification:
-```bash
-mkdir -p .agents
-ln -s ~/.memory/user.md .agents/AGENTS.md
-# Or directly at the repository root:
-ln -s ~/.memory/user.md AGENTS.md
-```
-
-Claude Code:
-```bash
-ln -s ~/.memory/user.md CLAUDE.md
-```
-
-Cursor:
-```bash
-ln -s ~/.memory/user.md .cursorrules
-```
+### 5.4 Link Operating Rules
+The file `~/.memory/user.md` is the single source of truth. Symlink it to wherever your coding agent discovers instructions:
+- Global rules: Link to the agent's machine-wide config path, such as `~/.gemini/config/AGENTS.md` or `~/.claude/CLAUDE.md`.
+- Workspace rules: Link into the project repository root as `.agents/AGENTS.md`, `AGENTS.md`, or `CLAUDE.md`.
