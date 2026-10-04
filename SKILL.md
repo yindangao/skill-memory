@@ -139,13 +139,10 @@ bun ~/.memory/scripts/commands/projects.ts save --name "<kebab-name>"
 
 Permanent user profile (`~/.memory/user.md`) storing core identity, preferences, and universal working rules.
 
-* **Symlink Architecture**: `~/.memory/user.md` is the canonical ground truth, directly linked into workspaces via symbolic links (e.g., `.agents/AGENTS.md`, `CLAUDE.md`).
 * **Trigger**: Update only upon explicit user directives, persistent working style adjustments, or permanent architecture invariants. Never mutate for transient task data.
-* **Editing Protocol**: Edit `~/.memory/user.md` directly using native file editing tools.
-* **Strict Confirmation Gate**: Always confirm proposed profile or rule modifications with the user in chat before applying edits, especially when inferring preferences rather than following explicit commands.
-* **Subagent Barrier**: Subagents are strictly forbidden from editing `~/.memory/user.md`.
-* **Substrate Invariant**: The `## Memory Substrate` section is an essential system anchor and must always be preserved.
-* **Template Bootstrap**: If `~/.memory/user.md` does not exist, initialize it from `templates/user.template.md` (see Section 5).
+* **Confirmation Gate**: Always confirm proposed profile or rule modifications with the user in chat before applying edits.
+* **Subagent Barrier**: Subagents are strictly forbidden from modifying `~/.memory/user.md`.
+* **Substrate Invariant**: The `## Memory Substrate` section is a required system anchor and must always be preserved.
 
 ---
 
