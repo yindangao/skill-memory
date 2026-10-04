@@ -86,20 +86,28 @@ Review the latest conversation transcript, recent journal entries, and existing 
    - People (briefings/people/<name>.md): Exactly 3-5 bounded bullets in ## Key Facts (Domain, Habits, Anchors). Max ~25 lines.
    - Projects (briefings/projects/<name>.md): 2-4 ## Objectives and 3-6 ## Key Facts (Architecture, Constraints, Roster). Max ~35 lines.
    - Consolidate & replace older lower-priority facts rather than continuously appending.
-3. Use the CLI commands to draft and save updates:
-   bun ~/.memory/scripts/commands/people.ts draft --json '<payload>' && bun ~/.memory/scripts/commands/people.ts save --name '<name>'
-   bun ~/.memory/scripts/commands/projects.ts draft --json '<payload>' && bun ~/.memory/scripts/commands/projects.ts save --name '<name>'
+3. Use the CLI commands to draft and save updates via stdin heredocs:
+   bun ~/.memory/scripts/commands/people.ts draft << 'EOF'
+   <payload_json>
+   EOF
+   bun ~/.memory/scripts/commands/people.ts save --name '<name>'
+
+   bun ~/.memory/scripts/commands/projects.ts draft << 'EOF'
+   <payload_json>
+   EOF
+   bun ~/.memory/scripts/commands/projects.ts save --name '<name>'
 4. Do NOT modify ~/.memory/user.md or ~/.memory/journals/. Both are strictly READ-ONLY.
 5. Exit silently when finished.
 `
 });
 ```
 
-### C. Underlying Entity CLI Commands (Used by Subagent)
+### C. Underlying Entity CLI Commands: Subagent Reference
 
 ```bash
-# Collaborator Briefings (Draft & Save)
-bun ~/.memory/scripts/commands/people.ts draft --json '{
+# Collaborator Briefings: Draft and Save
+bun ~/.memory/scripts/commands/people.ts draft << 'EOF'
+{
   "name": "<kebab-name>",
   "rationale": "<why updating>",
   "role": "<job title>",
@@ -107,18 +115,21 @@ bun ~/.memory/scripts/commands/people.ts draft --json '{
   "relationship": "<peer|manager|direct-report|cross-team|leadership|external>",
   "timezone": "<IANA-tz>",
   "key_facts": ["<Domain & Ownership>", "<Working Habits>", "<Personal Anchors>"]
-}'
+}
+EOF
 bun ~/.memory/scripts/commands/people.ts save --name "<kebab-name>"
 
-# Project Briefings (Draft & Save)
-bun ~/.memory/scripts/commands/projects.ts draft --json '{
+# Project Briefings: Draft and Save
+bun ~/.memory/scripts/commands/projects.ts draft << 'EOF'
+{
   "name": "<kebab-name>",
   "rationale": "<why updating>",
   "status": "<active|planning|paused|completed>",
   "lead": "<kebab-name>",
   "objectives": ["<Goal 1>", "<Goal 2>"],
   "key_facts": ["<Architecture & Stacks>", "<Constraints & Dependencies>", "<Roster>"]
-}'
+}
+EOF
 bun ~/.memory/scripts/commands/projects.ts save --name "<kebab-name>"
 ```
 

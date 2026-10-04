@@ -4,7 +4,7 @@
  *
  * Commands:
  *   index [--json]                            List all project index cards & active drafts
- *   draft --json '<payload>'                  Stage a new project briefing or patch existing fields
+ *   draft << 'EOF' ... EOF                    Stage a new project briefing via stdin (or --json '<payload>')
  *   save --name <name>                        Persist draft to briefings/projects/ with rolling backup
  */
 
@@ -277,8 +277,8 @@ Commands:
   index [--json]
     Output index summary of all project briefings and pending drafts.
 
-  draft --json '<payload>'
-    Stage a new project briefing or patch fields on an existing one.
+  draft [<< 'EOF' | --json '<payload>']
+    Stage a new project briefing or patch fields on an existing one via stdin or JSON flag.
     Payload schema:
       {
         "name": "<kebab-name>",                          (required)
@@ -333,7 +333,7 @@ async function main(): Promise<void> {
         }
 
         if (!jsonStr) {
-          throw new Error("Must provide payload via --json '<JSON>' or pipe to stdin");
+          throw new Error("Must provide payload via stdin (e.g. draft << 'EOF') or --json '<JSON>'");
         }
 
         let payload: ProjectDraftPayload;
