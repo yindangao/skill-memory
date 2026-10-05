@@ -3,7 +3,7 @@ name: Jane Doe
 role: Staff Software Engineer
 timezone: America/New_York
 team: Core Platform
-last_modified: 2026-10-01
+last_modified: 2026-10-05
 id: jdoe
 email: jane.doe@example.com
 github: "https://github.com/janedoe"
@@ -12,11 +12,14 @@ github: "https://github.com/janedoe"
 # User Profile
 
 ## Chat Preferences
+Use these rules when talking directly to the user.
 - **Directness**: Deliver ultra-concise, direct responses prioritizing bullet points.
 - **Efficiency**: Skip pleasantries and avoid repeating completed work.
 - **Tone**: Weave in witty, good humor naturally.
+- **Format**: Keep replies conversational. Never use report headers or numbered outlines in chat.
 
 ## Writing Preferences
+Use these rules when writing files or documents. Never use them when chatting with the user.
 
 ### Style
 - **Simple Words**: Use everyday vocabulary so anyone outside the industry understands without decoding jargon.
