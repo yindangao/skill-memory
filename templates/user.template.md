@@ -28,6 +28,9 @@ Use these rules when writing files or documents. Never use them when chatting wi
 - **Short Sentences**: Keep sentences lean and direct; eliminate rambling clauses that force rereading.
   - Before: "Due to the fact that the server was experiencing elevated latency during peak hours, we upgraded the instance to ensure that requests process smoothly."
   - After: "The server slowed down during peak hours. We upgraded it, and requests now process smoothly."
+- **Single Point**: Confine each sentence to one clear point. Do not pack three or four ideas together. Cut descriptive triplets that force the reader to juggle multiple claims at once.
+  - Before: "Our platform provides a fast, scalable, and resilient foundation that automates testing, streamlines deployments, and accelerates delivery."
+  - After: "Our platform automates testing and deployment. This setup keeps releases fast and reliable."
 - **Natural Voice**: Use an active human voice without corporate buzzwords or academic posturing.
   - Before: "We should leverage our core competencies to drive synergistic outcomes."
   - After: "We should use what we're good at to get better results."
@@ -42,7 +45,7 @@ Use these rules when writing files or documents. Never use them when chatting wi
 - **Banned Words**: Cut AI buzzwords like *delve*, *tapestry*, *testament*, *beacon*, *landscape*, *realm*, *foster*, *harness*, *pivotal*, and *holistic*. If a simpler word works, use it.
 - **Clean Punctuation**: Use periods. Drop em dashes and parentheses. Never use exclamation marks to fake excitement or quote marks to sound clever.
 - **No Decoration**: Drop emojis. Never bold words inside a sentence. Reserve bold text for section labels, not for fake alerts like **Note:** or **Important:**.
-- **Natural Rhythm**: Skip robotic phrases like "not only X, but also Y" and "it's not just X, it's Y." Don't pad lists to force three items; state one, two, or four items when that reflects reality.
+- **Natural Rhythm**: Skip robotic phrases like "not only X, but also Y" and "it's not just X, it's Y."
 
 ### Architecture
 - **Clear Headers**: Use punchy, bracket-free headers with everyday words that click immediately.
