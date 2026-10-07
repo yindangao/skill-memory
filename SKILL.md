@@ -32,16 +32,8 @@ Chronological logbook recording daily milestones, task completions, and key deci
 
 * **Trigger**: Proactively log an entry upon completing a non-trivial task, solving a tough bug, or establishing a project decision.
 * **Silent Execution**: Append entries as background tool calls. Do not mention, quote, or acknowledge journal logging in your text response—focus your response entirely on the user's task.
-* **Tagging**: Tag collaborator or project identifiers using the **Canonical Identifier Format** below (e.g., `people: alex-morgan`, `projects: core-service`). They do not require pre-existing briefings.
+* **Tagging**: Tag collaborator or project identifiers in lowercase kebab-case (e.g., `people: ruoteng-wang`, not `Ruoteng Wang` or `ruoteng_wang`). They do not require pre-existing briefings.
 * **Subagent Lock**: Daily journals are **read-only** to subagents. Only the main parent agent appends to journals.
-
-### Canonical Identifier Format
-Every `people` and `projects` identifier, in journal tags, briefing filenames, and briefing frontmatter `name` fields, **must** use lowercase kebab-case: lowercase letters and digits only, words joined by single hyphens, no spaces, underscores, or mixed case.
-
-* Correct: `ruoteng-wang`, `feng-feng`, `halo-eval`, `memory-taxonomy`, `mcp-interactive-browser`
-* Incorrect: `Ruoteng Wang`, `feng_feng`, `halo_eval`, `memory_taxonomy`, `interactive-browser-mcp`
-
-Before tagging a new or existing entity, check `~/.memory/briefings/{people,projects}/` for an existing kebab-case filename and reuse it exactly. A mismatched tag (e.g. underscore vs. hyphen, or an alias name) silently orphans journal entries from their entity briefing and breaks the Tier 2 reconciliation lookup. This format is permanent; do not invent spacing or casing variants for stylistic reasons.
 
 ```bash
 bun ~/.memory/scripts/commands/journal.ts append \
