@@ -32,6 +32,7 @@ function formatEntityList(raw?: string): string {
     .map((item) => item.trim())
     .map((item) => item.replace(/^(people|projects)\//i, ""))
     .map((item) => item.replace(/^\[\[(.*?)\]\]$/, "$1"))
+    .map((item) => item.toLowerCase().replace(/[\s_]+/g, "-"))
     .filter(Boolean)
     .join(", ");
 }
