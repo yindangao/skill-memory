@@ -1,7 +1,7 @@
 ---
 name: memory
 description: >-
-  Ambient cognitive persistence system. Consult stored entity briefings and journals to recall collaborator context, project history, and past decisions. Silently append daily journals and spawn a subagent to update entity briefings upon completing a non-trivial task, solving a tough bug, or establishing a project decision. Update user profile under user confirmation.
+  Ambient cognitive persistence system. Consult stored entity briefings and journals at ~/.memory/ to recall collaborator context, project history, and past decisions. Silently append daily journals and spawn a non-blocking background subagent to update entity briefings upon completing a non-trivial task, solving a tough bug, or establishing a project decision. Update user profile under user confirmation.
 allowed-tools:
   - Bash
   - Read
